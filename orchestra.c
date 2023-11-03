@@ -16,7 +16,7 @@
 
 #include "music.h"
 
-#define MAX_CLIENTS 4096
+#define MAX_CLIENTS 8
 #define SERVER_PORT 1990
 #define SOCK_BACKLOG 16
 #define QUEUE_SIZE 1000
@@ -205,9 +205,9 @@ int client(int who)
 
     /* Let it rip */
     if (who == 4096)
-	{
+    {
 #include "sheet_4096"
-	}
+    }
     else if (who == 1)
     {
 #include "sheet_1"
@@ -226,6 +226,6 @@ int main(int argc, char** argv)
         printf("Supply exactly one natural number (or 0) argument.\n");
         return 1;
     }
-    if (atoi(argv[1]) == 0)    return server();
+    if (atoi(argv[1]) == 0) return server();
     else return client(atoi(argv[1]));
 }
